@@ -43,14 +43,14 @@ class GoogleTokenGenerator
         }
         $a = fmod($a, 1000000);
 
-        return $a . '.' . ($a ^ $tkk[0]);
+        return $a.'.'.($a ^ $tkk[0]);
     }
 
     protected function rl(int $a, string $b): int
     {
         for ($c = 0; $c < strlen($b) - 2; $c += 3) {
             $d = $b[$c + 2];
-            $d = $d >= 'a' ? ord($d[0]) - 87 : (int)$d;
+            $d = $d >= 'a' ? ord($d[0]) - 87 : (int) $d;
             $d = $b[$c + 1] === '+' ? $this->unsignedRightShift($a, $d) : $a << $d;
             $a = $b[$c] === '+' ? ($a + $d & 4294967295) : $a ^ $d;
         }
@@ -61,7 +61,7 @@ class GoogleTokenGenerator
     protected function unsignedRightShift(int $a, int $b): int
     {
         if ($b >= 32 || $b < -32) {
-            $m = (int)($b / 32);
+            $m = (int) ($b / 32);
             $b -= ($m * 32);
         }
 
@@ -70,7 +70,7 @@ class GoogleTokenGenerator
         }
 
         if ($b === 0) {
-            return (($a >> 1) & 0x7fffffff) * 2 + (($a >> $b) & 1);
+            return (($a >> 1) & 0x7FFFFFFF) * 2 + (($a >> $b) & 1);
         }
 
         if ($a < 0) {

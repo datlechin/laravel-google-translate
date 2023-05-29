@@ -28,8 +28,16 @@ class GoogleTranslate
         return $this;
     }
 
-    public function translate(string $text): GoogleTranslateResult
+    public function translate(string $text, string $source = null, string $target = null): GoogleTranslateResult
     {
+        if ($source) {
+            $this->source = $source;
+        }
+
+        if ($target) {
+            $this->target = $target;
+        }
+
         $response = $this->client->request($text, $this->source, $this->target);
 
         return new GoogleTranslateResult($text, $response);
