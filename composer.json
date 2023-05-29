@@ -1,0 +1,40 @@
+{
+    "name": "datlechin/laravel-google-translate",
+    "description": "Free Google Translate API for Laravel application.",
+    "keywords": [
+        "google translate",
+        "laravel google translate",
+        "google translate api",
+        "translate"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/datlechin/laravel-google-translate",
+    "autoload": {
+        "psr-4": {
+            "Datlechin\\GoogleTranslate\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ngo Quoc Dat",
+            "email": "datlechin@gmail.com",
+            "homepage": "https://ngoquocdat.dev"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^10.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Datlechin\\GoogleTranslate\\GoogleTranslateServiceProvider"
+            ],
+            "aliases":{
+                "GoogleTranslate": "Datlechin\\GoogleTranslate\\Facades\\GoogleTranslate"
+            }
+        }
+    }
+}
