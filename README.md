@@ -19,8 +19,8 @@ composer require datlechin/laravel-google-translate
 use Datlechin\GoogleTranslate\Facades\GoogleTranslate;
 
 // Using facade
-$result = GoogleTranslate::withSource('en')
-    ->withTarget('vi')
+$result = GoogleTranslate::source('en')
+    ->target('vi')
     ->translate('Hello world!');
 
 $result->translatedText(); // Chào thế giới!

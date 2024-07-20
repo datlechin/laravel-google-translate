@@ -10,22 +10,36 @@ class GoogleTranslate
 
     protected string $target;
 
-    public function __construct(protected GoogleTranslateClient $client)
-    {
-    }
+    public function __construct(protected GoogleTranslateClient $client) {}
 
-    public function withSource(string $source): self
+    public function source(string $source): self
     {
         $this->source = $source;
 
         return $this;
     }
 
-    public function withTarget(string $target): self
+    public function target(string $target): self
     {
         $this->target = $target;
 
         return $this;
+    }
+
+    /**
+     * @deprecated
+     */
+    public function withSource(string $source): self
+    {
+        return $this->source($source);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function withTarget(string $target): self
+    {
+        return $this->target($target);
     }
 
     public function translate(string $text, string $source = null, string $target = null): GoogleTranslateResult
