@@ -5,6 +5,8 @@ namespace Datlechin\GoogleTranslate\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
+ * @method static \Datlechin\GoogleTranslate\GoogleTranslate source(string $source)
+ * @method static \Datlechin\GoogleTranslate\GoogleTranslate target(string $target)
  * @method static \Datlechin\GoogleTranslate\GoogleTranslate withSource(string $source)
  * @method static \Datlechin\GoogleTranslate\GoogleTranslate withTarget(string $target)
  * @method static \Datlechin\GoogleTranslate\GoogleTranslateResult translate(string $text, string|null $source = null, string|null $target = null)
