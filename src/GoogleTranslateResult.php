@@ -4,21 +4,23 @@ declare(strict_types=1);
 
 namespace Datlechin\GoogleTranslate;
 
+use Illuminate\Support\Arr;
+
 class GoogleTranslateResult
 {
     protected string $translatedText;
 
     protected string $sourceLanguage;
 
-    protected array $alternativeTranslations;
+    protected array $alternativeTranslations = [];
 
     public function __construct(protected string $sourceText, protected array $response)
     {
-        $this->translatedText = $this->response[0][0][0];
-        $this->sourceLanguage = $this->response[2];
+        $this->translatedText = Arr::get($this->response, '0.0.0');
+        $this->sourceLanguage = Arr::get($this->response, '2');
 
-        foreach ($this->response[5][0][2] as $alternative) {
-            $this->alternativeTranslations[] = $alternative[0];
+        foreach (Arr::get($this->response, '5.0.2', []) as $alternative) {
+            $this->alternativeTranslations[] = Arr::get($alternative, '0');
         }
     }
 
